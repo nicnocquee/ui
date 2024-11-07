@@ -17,6 +17,16 @@ export async function getGitHubBaseUrl() {
   return `https://raw.githubusercontent.com/${url.repo}/main/registry`;
 }
 
+export async function getHomepageUrl() {
+  const packageJson = JSON.parse(await readFile("./package.json", "utf-8"));
+
+  if (!packageJson.homepage) {
+    return "https://example.com/registry";
+  }
+
+  return packageJson.homepage;
+}
+
 export function getComponentBasePath(type: RegistryEntry["type"]) {
   if (type === "registry:component") {
     return "./src/components";

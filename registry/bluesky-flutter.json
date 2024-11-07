@@ -1,6 +1,6 @@
 {
   "name": "bluesky-flutter",
-  "type": "registry:ui",
+  "type": "registry:component",
   "registryDependencies": [],
   "dependencies": [],
   "devDependencies": [],

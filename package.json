@@ -7,6 +7,7 @@
     "type": "git",
     "url": "https://github.com/nicnocquee/ui"
   },
+  "homepage": "https://ui.nico.fyi",
   "scripts": {
     "build": "tsx scripts/build.ts",
     "build:demo": "tsc -b && vite build",

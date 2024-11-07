@@ -2,7 +2,7 @@ import { RegistryEntry } from "@/../scripts/schema";
 
 export const registry: RegistryEntry = {
   name: "bluesky-flutter",
-  type: "registry:ui",
+  type: "registry:component",
 
   // shadcn-ui components that this component depends on
   registryDependencies: [],
