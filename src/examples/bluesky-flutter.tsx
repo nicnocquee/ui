@@ -9,7 +9,7 @@ import {
 
 export function BlueSkyFlutterExample() {
   return (
-    <Card className="w-[350px]">
+    <Card className="w-full max-w-4xl mx-auto">
       <CardHeader>
         <CardTitle>FlutterBy</CardTitle>
         <CardDescription>
@@ -24,24 +24,26 @@ export function BlueSkyFlutterExample() {
             text="@nico.fyi"
           />
         </div>
-        <p className="[&>a]:underline [&>a]:text-blue-700">
-          This is a React component with Tailwind CSS based on the awesome{" "}
-          <a href="https://flutterby.philhawksworth.dev">FlutterBy</a> by{" "}
-          <a href="https://bsky.app/profile/philhawksworth.dev">
-            Phil Hawksworth
-          </a>
-          . I saw it on{" "}
-          <a href="https://bsky.app/profile/philhawksworth.dev/post/3labrybt5lb23">
-            his post on Bluesky
-          </a>{" "}
-          🦋.
-        </p>
-        <p>
-          The code is here:{" "}
-          <a href="https://github.com/nicnocquee/ui">
-            https://github.com/nicnocquee/ui.
-          </a>
-        </p>
+        <div className="[&_a]:text-blue-700">
+          <p className="[&>a]:underline">
+            This is a React component with Tailwind CSS based on the awesome{" "}
+            <a href="https://flutterby.philhawksworth.dev">FlutterBy</a> by{" "}
+            <a href="https://bsky.app/profile/philhawksworth.dev">
+              Phil Hawksworth
+            </a>
+            . I saw it on{" "}
+            <a href="https://bsky.app/profile/philhawksworth.dev/post/3labrybt5lb23">
+              his post on Bluesky
+            </a>{" "}
+            🦋.
+          </p>
+          <p>
+            The code is here:{" "}
+            <a href="https://github.com/nicnocquee/ui">
+              https://github.com/nicnocquee/ui.
+            </a>
+          </p>
+        </div>
       </CardContent>
     </Card>
   );
