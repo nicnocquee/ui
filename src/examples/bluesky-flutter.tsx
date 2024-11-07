@@ -1,4 +1,4 @@
-import { BlueSkyFlutter } from "@/components/ui/bluesky-flutter";
+import { BlueSkyFlutter } from "@/components/custom/bluesky-flutter";
 import {
   Card,
   CardContent,

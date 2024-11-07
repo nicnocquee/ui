@@ -7,6 +7,7 @@ import chalk from "chalk";
 console.log("Building registry...");
 
 const baseUrl = await getGitHubBaseUrl();
+const componentsDirectory = `./src/components/custom`;
 
 for (const registryData of registryConfig) {
   const registry = registryData as RegistryEntry;
@@ -15,7 +16,7 @@ for (const registryData of registryConfig) {
 
   for (const file of registry.files) {
     if (typeof file === "string") {
-      const content = await readFile(`./src/components/ui/${file}`, "utf-8");
+      const content = await readFile(`${componentsDirectory}/${file}`, "utf-8");
       registry.files = registry.files.filter((f) => f !== file);
       registry.files.push({
         path: file,
