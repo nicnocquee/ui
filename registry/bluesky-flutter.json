@@ -1,0 +1,69 @@
+{
+  "name": "bluesky-flutter",
+  "type": "registry:ui",
+  "registryDependencies": [],
+  "dependencies": [],
+  "devDependencies": [],
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {
+          "keyframes": {
+            "flutter-left": {
+              "10%": {
+                "transform": "scale(1, 0.9)"
+              },
+              "20%": {
+                "transform": "scale(0.5, 1)"
+              },
+              "40%": {
+                "transform": "scale(0.9, 0.95)"
+              },
+              "60%": {
+                "transform": "scale(0.3, 1)"
+              },
+              "80%": {
+                "transform": "scale(0.9, 0.95)"
+              },
+              "100%": {
+                "transform": "scale(1, 1)"
+              }
+            },
+            "flutter-right": {
+              "10%": {
+                "transform": "scale(-1, 0.9)"
+              },
+              "20%": {
+                "transform": "scale(-0.5, 1)"
+              },
+              "40%": {
+                "transform": "scale(-0.9, 0.95)"
+              },
+              "60%": {
+                "transform": "scale(-0.3, 1)"
+              },
+              "80%": {
+                "transform": "scale(-0.9, 0.95)"
+              },
+              "100%": {
+                "transform": "scale(-1, 1)"
+              }
+            }
+          },
+          "animation": {
+            "flutter-left": "flutter-left 430ms ease-in-out",
+            "flutter-right": "flutter-right 500ms ease-in-out"
+          }
+        }
+      }
+    }
+  },
+  "cssVars": {},
+  "files": [
+    {
+      "path": "bluesky-flutter.tsx",
+      "content": "\"use client\";\n\n/**\n * BlueSkyFlutter - A React component that creates an animated butterfly effect based on the work of Phil Hawksworth: https://flutterby.philhawksworth.dev\n *\n * Basic usage:\n * ```tsx\n * <BlueSkyFlutter\n *   href=\"https://example.com\"\n *   text=\"Click me\"\n *   className=\"text-blue-500\"\n * />\n * ```\n *\n * For more control, you can use the container and anchor separately:\n * ```tsx\n * <BlueSkyFlutterContainer className=\"text-blue-500\">\n *   <BlueSkyFlutterAnchor href=\"https://example.com\">\n *     Custom content\n *   </BlueSkyFlutterAnchor>\n * </BlueSkyFlutterContainer>\n * ```\n *\n *\n * @requires tailwindcss - Requires Tailwind CSS for animations and styling\n * @requires @/lib/utils - Uses the cn utility for className merging\n */\n\nimport { cn } from \"@/lib/utils\"; // Assuming you have shadcn's utility function\nimport { AnchorHTMLAttributes, HTMLAttributes } from \"react\";\n\nexport function BlueSkyFlutterContainer({\n  className,\n  children,\n}: HTMLAttributes<HTMLAnchorElement>) {\n  return (\n    <div className={cn(\"inline-flex items-center gap-2 group\", className)}>\n      <svg\n        className=\"w-8 h-8 transition-transform duration-500 group-hover:rotate-[-5deg] group-focus:rotate-[-5deg]\"\n        viewBox=\"0 0 566 500\"\n        xmlns=\"http://www.w3.org/2000/svg\"\n      >\n        <defs>\n          <path\n            id=\"wing\"\n            fill=\"currentColor\"\n            d=\"M 123.244 35.008 C 188.248 83.809 283.836 176.879 283.836 235.857 C 283.836 316.899 283.879 235.845 283.836 376.038 C 283.889 375.995 282.67 376.544 280.212 383.758 C 266.806 423.111 214.487 576.685 94.841 453.913 C 31.843 389.269 61.013 324.625 175.682 305.108 C 110.08 316.274 36.332 297.827 16.093 225.504 C 10.271 204.699 0.343 76.56 0.343 59.246 C 0.343 -27.451 76.342 -0.206 123.244 35.008 Z\"\n          />\n        </defs>\n        <use\n          xlinkHref=\"#wing\"\n          className=\"origin-center animate-[flutter_430ms_ease-in-out] group-hover:animate-flutter-left group-focus:animate-flutter-left\"\n        />\n        <use\n          xlinkHref=\"#wing\"\n          className=\"origin-center scale-x-[-1] animate-[flutter_500ms_ease-in-out] group-hover:animate-flutter-right group-focus:animate-flutter-right\"\n        />\n      </svg>\n      {children}\n    </div>\n  );\n}\n\nexport function BlueSkyFlutterAnchor({\n  href,\n  children,\n  className,\n  ...props\n}: AnchorHTMLAttributes<HTMLAnchorElement>) {\n  return (\n    <a href={href} className={className} {...props}>\n      {children}\n    </a>\n  );\n}\n\nexport function BlueSkyFlutter({\n  href,\n  text,\n  className,\n}: {\n  href: string;\n  text: string;\n  className?: string;\n}) {\n  return (\n    <BlueSkyFlutterContainer className={className}>\n      <BlueSkyFlutterAnchor href={href}>{text}</BlueSkyFlutterAnchor>\n    </BlueSkyFlutterContainer>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}
