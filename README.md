@@ -12,7 +12,7 @@ npx shadcn@latest add https://raw.githubusercontent.com/nicnocquee/ui/main/regis
 
 This command will add the `bluesky-flutter.tsx` file to your project and update your `tailwind.config.[js|ts]` file to include the necessary configuration for the component. If you encountered any issues with the updated tailwind configuration, you can manually add the following configuration to your `tailwind.config.[js|ts]` file:
 
-````typescript
+```typescript
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ["class"],
@@ -47,6 +47,23 @@ export default {
 };
 ```
 
+And then you can use it in your project by importing it:
+
+```typescript
+import { BlueSkyFlutter } from "@/components/ui/bluesky-flutter";
+
+export function BlueSkyFlutterExample() {
+  return (
+    <div>
+      <BlueSkyFlutter
+        className="text-blue-700 [&>a]:hover:underline"
+        href="https://bsky.app/profile/nico.fyi"
+        text="@nico.fyi"
+      />
+    </div>
+  );
+}
+```
 
 ## Development
 
@@ -55,4 +72,7 @@ export default {
 - `npm run build:demo`: Build the demo.
 - `npm run lint`
 - `npm run dev:server`: Starts a server to host your registry locally. This is useful for testing the registry locally and installing in another project.
-````
+
+```
+
+```

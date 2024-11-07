@@ -36,6 +36,12 @@ export function BlueSkyFlutterExample() {
           </a>{" "}
           🦋.
         </p>
+        <p>
+          The code is here:{" "}
+          <a href="https://github.com/nicnocquee/ui">
+            https://github.com/nicnocquee/ui.
+          </a>
+        </p>
       </CardContent>
     </Card>
   );
