@@ -7,7 +7,7 @@ A React component that creates an animated butterfly effect based on the work of
 Install the `bluesky-flutter` component from this registry:
 
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/nicnocquee/ui/main/registry/bluesky-flutter.json
+npx shadcn@latest add https://ui.nico.fyi/registry/bluesky-flutter.json
 ```
 
 This command will add the `bluesky-flutter.tsx` file to your project and update your `tailwind.config.[js|ts]` file to include the necessary configuration for the component. If you encountered any issues with the updated tailwind configuration, you can manually add the following configuration to your `tailwind.config.[js|ts]` file:
@@ -43,7 +43,6 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
 };
 ```
 
