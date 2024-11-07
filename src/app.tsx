@@ -9,4 +9,3 @@ function App() {
 }
 
 export default App;
-// https://bsky.app/profile/philhawksworth.dev
