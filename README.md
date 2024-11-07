@@ -72,7 +72,3 @@ export function BlueSkyFlutterExample() {
 - `npm run build:demo`: Build the demo.
 - `npm run lint`
 - `npm run dev:server`: Starts a server to host your registry locally. This is useful for testing the registry locally and installing in another project.
-
-```
-
-```
