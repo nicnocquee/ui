@@ -97,6 +97,6 @@ export function CoolTextExample() {
 - `npm run lint`
 - `npm run dev:server`: Starts a server to host your registry locally. This is useful for testing the registry locally and installing in another project.
 
-```
+## Acknowledgements
 
-```
+This project is forked from [shadcn-registry-template](https://github.com/vantezzen/shadcn-registry-template).
