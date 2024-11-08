@@ -47,5 +47,10 @@ export const registry: RegistryEntry = {
   cssVars: {},
 
   // Files that make up this component in your relative to src/components/custom folder
-  files: ["bluesky-flutter.tsx"],
+  files: [
+    {
+      path: "bluesky-flutter.tsx",
+      type: "registry:component",
+    },
+  ],
 };

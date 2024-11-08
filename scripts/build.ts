@@ -24,6 +24,17 @@ for (const registryData of registryConfig) {
         content,
         type: "registry:ui",
       });
+    } else if (typeof file === "object") {
+      const content = await readFile(
+        `${componentsDirectory}/${file.path}`,
+        "utf-8"
+      );
+      registry.files = registry.files.filter((f) => f !== file);
+      registry.files.push({
+        path: file.path,
+        content,
+        type: file.type,
+      });
     }
   }
 
@@ -34,7 +45,7 @@ for (const registryData of registryConfig) {
 
   const gitHub = `${baseUrl}/${registry.name}.json`;
   const remote = `${homepageUrl}/registry/${registry.name}.json`;
-  const local = `http://127.0.0.1:8081/${registry.name}.json`;
+  const local = `http://localhost:8080/${registry.name}.json`;
 
   console.log(
     `Registry built for ${chalk.green.bold(registry.name)}:
