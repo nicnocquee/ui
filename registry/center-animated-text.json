@@ -1,0 +1,18 @@
+{
+  "name": "center-animated-text",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "dependencies": [
+    "framer-motion",
+    "react"
+  ],
+  "devDependencies": [],
+  "cssVars": {},
+  "files": [
+    {
+      "path": "center-animated-text.tsx",
+      "content": "\"use client\";\n\nimport { useState, useEffect, useMemo } from \"react\";\nimport { motion } from \"framer-motion\";\nimport { cn } from \"@/lib/utils\";\n\n// Custom hook to manage animation logic\nconst useAnimatedText = (text: string = \"\") => {\n  const [animatedChars, setAnimatedChars] = useState<string[]>([]);\n\n  const middleIndex = useMemo(() => Math.floor(text.length / 2), [text]);\n\n  useEffect(() => {\n    const chars = text.split(\"\");\n    setAnimatedChars(chars);\n  }, [text]);\n\n  return { animatedChars, middleIndex };\n};\n\ninterface AnimatedTextProps {\n  text?: string;\n  className?: string;\n}\n\nconst CenteredAnimatedText = ({\n  text = \"\",\n  className = \"\",\n}: AnimatedTextProps) => {\n  const { animatedChars, middleIndex } = useAnimatedText(text);\n\n  if (!text) {\n    return null;\n  }\n\n  return (\n    <div className={cn(`flex justify-center overflow-hidden`, className)}>\n      {animatedChars.map((char, index) => {\n        const distance = Math.abs(index - middleIndex);\n        const isLeft = index < middleIndex;\n\n        return (\n          <motion.span\n            key={`${char}-${index}`}\n            initial={{\n              opacity: 0,\n              x: isLeft ? -50 : 50,\n            }}\n            animate={{\n              opacity: 1,\n              x: 0,\n            }}\n            transition={{\n              duration: 0.5,\n              delay: distance * 0.1,\n              ease: [0.6, -0.05, 0.01, 0.99],\n            }}\n            style={{ display: \"inline-block\" }}\n          >\n            {char === \" \" ? \"\\u00A0\" : char}\n          </motion.span>\n        );\n      })}\n    </div>\n  );\n};\n\nexport default CenteredAnimatedText;\n",
+      "type": "registry:component"
+    }
+  ]
+}
